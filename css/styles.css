@@ -1,0 +1,32 @@
+html, body {
+    margin:0px;
+}
+
+#main-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}
+
+#game-ui {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    background-color: burlywood;
+}
+
+#game-choices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
