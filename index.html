@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
-<script type="text/javascript" src="js/game-logic.js"></script>
+<script type="text/javascript" src="js/game-logic.js" defer></script>
 <body>
 
     <div id="main-container">
@@ -11,20 +11,27 @@
             <div id="game-instructions">
                 <h3>Choose one option</h3>
             </div>
-            <div id ="game-choices">
-                <div class="rps-choices">
+            <div id="game-choices">
+                <div class="rps_choices">
                     <img src="https://img.icons8.com/ios-filled/50/000000/rock.png"/>
-                    
+                    <button id="rock" class="choice">Choose</button>
                 </div>
-                <div class="rps-choices">
+                <div class="rps_choices">
                     <img src="https://img.icons8.com/ios/50/000000/paper.png"/>
-                    
+                    <button id="paper" class="choice">Choose</button>
                 </div>
-                <div class="rps-choices">
+                <div class="rps_choices">
                     <img src="https://img.icons8.com/ios/50/000000/scissors.png"/>
-                    
+                    <button id="scissors" class="choice">Choose</button>
                 </div>
             </div>
+        </div>
+        <div id="result">
+            <div id="currentResult" class="resultMessages"></div>
+            <div id="wins" class="resultMessages"></div>
+            <div id="loses" class="resultMessages"></div>
+            <div id="ties" class="resultMessages"></div>
+            <div id="finalResult" class="resultMessages"></div>
         </div>
         <div id="icons-reference">
             <h4>Icons:</h4>

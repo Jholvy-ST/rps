@@ -1,3 +1,9 @@
+let choiceObtained = "";
+let wins = 0;
+let loses = 0;
+let ties = 0;
+let plays = 0;
+
 function computerPlay(){
 
     const options = ["Paper", "Scissors", "Rock"];
@@ -13,17 +19,28 @@ function capitalize(str){
     return str.charAt(0).toUpperCase()+lower.slice(1);
 }
 
+function getId(){
+    const choiceId = ""+this.id;
+
+    if (choiceId === undefined) {
+        console.log("Nothing.");
+    }else {
+        choiceObtained = choiceId;
+    }
+}
+
+const buttons = document.querySelectorAll(".choice");
+buttons.forEach(choice => choice.addEventListener("click", getId));
+buttons.forEach(choice => choice.addEventListener("click", game));
+
 function game(){
     
-    let wins = 0;
-    let loses = 0;
-    let ties = 0;
-    let plays = 0;
     
     
-    while (plays<5){
+    
+    if (plays<5){
 
-        let playerChoice = prompt("Write your play!");
+        let playerChoice = choiceObtained;
         playerChoice = capitalize(playerChoice);
         let computerChoice = computerPlay();
         console.log(playRound(playerChoice, computerChoice));
@@ -63,33 +80,50 @@ function game(){
             if (win==true){
                 wins ++;
                 message = "You win! "+playerSelection+" beats "+computerSelection+".";
+                document.getElementById("currentResult").innerHTML=message;
             }else if(win==false && tie==false){
                 loses++;
                 message = "You lose! "+computerSelection+" beats "+playerSelection+".";
+                document.getElementById("currentResult").innerHTML=message;
             }else if (tie==true){
                 ties++;
                 message = "Tie!";
+                document.getElementById("currentResult").innerHTML=message;
             }
     
             return message;
         }
-    } 
+    }
     
     if(plays==5) {
+        
+        let finalResult = "";
+
+        plays++;
         console.log("Game finished!");
         console.log("Wins: "+wins);
+        document.getElementById("wins").innerHTML="Wins: "+wins;
         console.log("Loses: "+loses);
+        document.getElementById("loses").innerHTML="Loses: "+loses;
         console.log("Ties: "+ties);
+        document.getElementById("ties").innerHTML="Ties: "+ties;
 
         if (wins>loses){
             console.log("You win!");
+            finalResult = "You win!";
         }else if(loses>wins){
             console.log("You lose!");
+            finalResult = "You lose!";
         }else if (wins==loses){
             console.log("It's a tie!");
+            finalResult = "It's a tie!";
         }
+
+        document.getElementById("finalResult").innerHTML=finalResult;
+
+    }else if(plays>5){
+        alert("The game is over.");
     }
-    
-    
 
 }
+
